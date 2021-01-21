@@ -2,10 +2,8 @@
 
 ## Purpose
 
-```
 Welcome to Safe Travels! We are dedicated to providing a growing database of information to help you travel with confidence within the continental U.S. Whether travelling alone or with others, it is important to be informed. Our application will arm you with knowledge of local crime rates, as well as a current weather forecast to help you determine if travel is advisable. We hope to be able to expand the information we provide as we grow, so keep checking back to see how else Safe Travels can help you travel with confidence.
 
-```
 
 ## Project Requirements 
 
