@@ -29,7 +29,7 @@
             </div>
           
             <div id="navbarBasicExample" class="navbar-menu">
-              <div class="navbar-end mr-6">
+              <div class="navbar-start ml-6">
                 <a style="color:#83c1d4" id= "nav-about" class="navbar-item mr-6 is-size-4">
                   About
                 </a>
@@ -48,9 +48,38 @@
     <section class="search container has-text-centered mb-5">
         <h2 class="title">Search</h2>
         <input class="input is-rounded" placeholder="City, State" type="text" name="city-search" id="searchbar">
-        <button class="button has-text-centered" type="submit">Search</button>
+        <button class="button has-text-centered" id="btn" type="submit">Search</button>
     </section>
+<!--MODAL-->
+<div class='container has-text-centered'> 
+  <div class='columns is-mobile is-centered'> 
+    <div class='column is-4'> 
+      
+      <div class="modal"> 
+        <div class="modal-background"></div> 
+        <div class="modal-content"> 
 
+          <div class='box'> 
+            <h1 class='title' 
+                style='is-dark'> 
+              CITY NAME HERE</h1> 
+            <section class='is-family-monospace'> 
+             <p>Crime Data returned here
+            </p>
+            </section> 
+            <section>
+              <p>weather foreecast returned here</p>
+            </section> 
+          </div> 
+        </div> 
+        <button class="modal-close is-large" 
+                aria-label="close"> 
+          Model 
+        </button> 
+      </div> 
+    </div> 
+  </div> 
+</div> 
 <!--bottom navbar begins-->
     <section class="hero is-dark">
       <div class="hero-body">
