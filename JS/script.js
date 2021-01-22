@@ -19,21 +19,18 @@ $(document).ready(function() {
     const close =  
           document.querySelector('.modal-close') 
   
-    btn.addEventListener('click', 
-                         function () { 
+    btn.addEventListener('click', function () { 
       modal.style.display = 'block' 
     }) 
   
-    close.addEventListener('click', 
-                           function () { 
+    close.addEventListener('click', function () { 
       modal.style.display = 'none' 
     }) 
-  
-    window.addEventListener('click', 
-                            function (event) { 
-      if (event.target.className ===  
-          'modal-background') { 
+    window.addEventListener('click', function (event) { 
+      if (event.target.className ===  'modal-background') { 
         modal.style.display = 'none' 
       } 
     }) 
+
+   
 
