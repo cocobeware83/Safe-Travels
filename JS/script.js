@@ -1,5 +1,6 @@
 let searchHistory = [];
-let savedSearchesDiv = $("#saved-searches");
+let savedSearchesDiv = document.getElementById("saved-searches")
+let searchButton = document.getElementById("btn")
 
 // check for local storage
 if(localStorage.getItem('city')===null){
@@ -46,7 +47,7 @@ $(document).ready(function() {
 
    
 
-
+// stores searched city in local storage and displays below search bar
 let storeCity = function(city){
     // pushes new city into array
     searchHistory.push(city);
@@ -59,13 +60,29 @@ let storeCity = function(city){
      for(let i = 0; i < searchHistory.length; i++){
              
         let listedCity = document.createElement("li");
-        listedCity.attr("class", "list-group-item");
+        listedCity.setAttribute("class", "button is-small mt-0 mx-1");
         savedSearchesDiv.appendChild(listedCity);
         let cityLink = document.createElement("a");
         cityLink.setAttribute("href","#");
-        cityLink.setAttribute("class", "searched-city")
+        cityLink.setAttribute("class", "searched-city has-text-white")
         cityLink.innerHTML = searchHistory[i];
         listedCity.appendChild(cityLink);
 
-};
+      };
+
+        // stores city into local storage
+        localStorage.setItem("city", JSON.stringify(searchHistory));
 }
+
+let citySearch = function(){
+    let city = document.getElementById("searchbar").value.trim().toLowerCase();
+    console.log(city);
+    if(city){
+      storeCity(city);
+    }else{
+      return
+    }
+
+}
+
+searchButton.addEventListener("click", citySearch);
