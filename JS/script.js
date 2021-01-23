@@ -1,3 +1,13 @@
+let searchHistory = [];
+let savedSearchesDiv = $("#saved-searches");
+
+// check for local storage
+if(localStorage.getItem('city')===null){
+    searchHistory = [];
+}else{
+    searchHistory = JSON.parse(localStorage.getItem('city'));
+}
+
 // Animates navbar burger
 $(document).ready(function() {
 
@@ -11,3 +21,26 @@ $(document).ready(function() {
     });
   });
 
+
+let storeCity = function(city){
+    // pushes new city into array
+    searchHistory.push(city);
+
+     //clears previous search displays
+     savedSearchesDiv.innerHTML = "";
+    
+    
+     // displays searched cities 
+     for(let i = 0; i < searchHistory.length; i++){
+             
+        let listedCity = document.createElement("li");
+        listedCity.attr("class", "list-group-item");
+        savedSearchesDiv.appendChild(listedCity);
+        let cityLink = document.createElement("a");
+        cityLink.setAttribute("href","#");
+        cityLink.setAttribute("class", "searched-city")
+        cityLink.innerHTML = searchHistory[i];
+        listedCity.appendChild(cityLink);
+
+};
+}
