@@ -17,7 +17,7 @@ $(document).ready(function() {
     const btn =  
           document.querySelector('#btn') 
     const close =  
-          document.querySelector('.modal-close') 
+          document.querySelector('.delete') 
   
     btn.addEventListener('click', function () { 
       modal.style.display = 'block' 
@@ -27,7 +27,7 @@ $(document).ready(function() {
       modal.style.display = 'none' 
     }) 
     window.addEventListener('click', function (event) { 
-      if (event.target.className ===  'modal-background') { 
+      if (event.target.className ===  'delete') { 
         modal.style.display = 'none' 
       } 
     }) 
