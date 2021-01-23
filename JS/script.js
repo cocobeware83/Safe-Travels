@@ -52,6 +52,9 @@ let storeCity = function(city){
     // pushes new city into array
     searchHistory.push(city);
 
+    // limits display to last 8 searches
+    searchHistory = searchHistory.slice(Math.max(searchHistory.length - 8,0))
+
      //clears previous search displays
      savedSearchesDiv.innerHTML = "";
     
@@ -79,6 +82,7 @@ let citySearch = function(){
     console.log(city);
     if(city){
       storeCity(city);
+      city = "";
     }else{
       return
     }
