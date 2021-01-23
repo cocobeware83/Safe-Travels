@@ -1,29 +1,10 @@
 body {
-    background-image: url('../images/map2.jpg')
-    ;
+    background-image: url('../images/map2.jpg');
 }
 /*navbar styling*/
 .image {
     padding: 10px;
 }
-
-/*about us styling*/
-.img-cont {
-    width: 50%;
-    float: left;
-  }
-  
-  img {
-    height: 25em;
-  }
-  
-  .clearfix {
-    clear: left;
-  }
-  
-  .content {
-    float: right;
-  }
 
 /*search bar styling*/
 #searchbar {
