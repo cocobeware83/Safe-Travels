@@ -1,3 +1,5 @@
+//weatherbit.io API key 
+
 // Animates navbar burger
 $(document).ready(function() {
 
