@@ -1,0 +1,26 @@
+body {
+    background-image: url('../images/map2.jpg');
+}
+/*navbar styling*/
+.image {
+    padding: 10px;
+}
+
+/*search bar styling*/
+#searchbar {
+    max-width: 50%;
+}
+input{
+    text-align:center;
+ }
+
+ .button {
+    color: whitesmoke; 
+    background-color:#363533;
+    border: none;
+ }
+ .button:hover{
+  background-color: #706f6c;   
+ }
+
+

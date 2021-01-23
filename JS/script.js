@@ -7,6 +7,7 @@ if(localStorage.getItem('city')===null){
 }else{
     searchHistory = JSON.parse(localStorage.getItem('city'));
 }
+//weatherbit.io API key 
 
 // Animates navbar burger
 $(document).ready(function() {
@@ -20,6 +21,29 @@ $(document).ready(function() {
   
     });
   });
+  
+  //modal JS
+  const modal =  
+          document.querySelector('.modal'); 
+    const btn =  
+          document.querySelector('#btn') 
+    const close =  
+          document.querySelector('.delete') 
+  
+    btn.addEventListener('click', function () { 
+      modal.style.display = 'block' 
+    }) 
+  
+    close.addEventListener('click', function () { 
+      modal.style.display = 'none' 
+    }) 
+    window.addEventListener('click', function (event) { 
+      if (event.target.className ===  'delete') { 
+        modal.style.display = 'none' 
+      } 
+    }) 
+
+   
 
 
 let storeCity = function(city){
