@@ -7,7 +7,8 @@ if(localStorage.getItem('city')===null){
 }else{
     searchHistory = JSON.parse(localStorage.getItem('city'));
 }
-//weatherbit.io API key 
+
+//weatherbit.io API key a6f0dd8794a44655b5fe26a993709bf4
 
 // Animates navbar burger
 $(document).ready(function() {
