@@ -1,6 +1,7 @@
 let searchHistory = [];
-let savedSearchesDiv = document.getElementById("saved-searches")
-let searchButton = document.getElementById("btn")
+let savedSearchesDiv = document.getElementById("saved-searches");
+let searchButton = document.getElementById("btn");
+let searchBar = document.getElementById("searchbar");
 
 // check for local storage
 if(localStorage.getItem('city')===null){
@@ -77,12 +78,13 @@ let storeCity = function(city){
         localStorage.setItem("city", JSON.stringify(searchHistory));
 }
 
+// Pulls value from search bar
 let citySearch = function(){
-    let city = document.getElementById("searchbar").value.trim().toLowerCase();
+    let city = searchBar.value.trim().toLowerCase();
     console.log(city);
     if(city){
       storeCity(city);
-      city = "";
+      searchBar.value = "";
     }else{
       return
     }
