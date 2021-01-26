@@ -1,4 +1,4 @@
-<h1 align="center">Safe Travels</h1>
+<h1 align="center">Safe Travels!</h1>
 
 Insert GIF of Deployed Application Here
 

@@ -22,3 +22,18 @@ input{
  .button:hover{
   background-color: #706f6c;   
  }
+/*styling for UV index conditions */
+.favorable {
+    color: green; 
+    font-weight:bolder
+}
+  
+.moderate {
+    color: orange; 
+    font-weight:bolder
+}
+  
+.severe {
+    background-color: red;
+    font-weight:bolder
+} 
