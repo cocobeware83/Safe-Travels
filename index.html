@@ -60,23 +60,74 @@
         </div>
     </section>
 <!--insert MODAL here-->
-<div class="modal is-clipped">
+<div class="modal is-full-width">
   <div class="modal-background"></div>
   <div class="modal-card">
-    <header class="box modal-card-head has-background-dark">
-      <span class="modal-card-title has-text-centered has-text-white-bis">
+    <header class="box modal-card-head has-background-grey-lighter">
+      <span class="modal-card-title has-text-centered has-text-grey-darker">
         <span id='city-name'></span>
-      <button class="delete" aria-label="close"></button>
+      <button class="delete is-pulled-right" aria-label="close"></button>
     </header>
+    <section id='covidData' class="box modal-card-body covid-rates">
+      <p>CURRENT COVID DATA: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </section>
+    <!--CITY WEATHER CONDITIONS FOR THE DAY-->
     <section id='displayCity' class="box modal-card-body weather-forecast background-color-is-primary">
       <p><strong>Current Temperature: </strong><span id='city-temp'></span></p>
       <p><strong>Current Humidity: </strong><span id='city-humidity'></span></p>
       <p><strong>Current UV Index: </strong><span id='city-uvindex'%></span></p>
-    </section>
+      <br>
+      <h1><strong>Four Day Forecast</strong></h1>
+      <br>
+      <div class="columns is-multiline is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd">    
+  <!--day 1-->
+          <div class="column is-half has-background-white"  style="max-width: 10rem;">
+              <div class="card-content">
+                  
+                  <img class="image is-rounded is-96x96" id="icon1"/>
+              <br>
+              <p class="card-title" id="day-1"></h4>
+              <p class="card-text">Temp: <span id="temp-1"></span></p>
+              <p>Humidity: <span id="humidity-1"></span></p>
+              </div>
+          </div>  
+  <!--day 2-->
+  <div class="column is-half has-background-white" style="max-width: 10rem;">
+    <div class="card-content">
+        
+        <img class="image is-rounded is-96x96" id="icon2"/>
+    <br>
+    <p class="card-title" id="day-2"></h4>
+    <p class="card-text">Temp: <span id="temp-2"></span></p>
+    <p>Humidity: <span id="humidity-2"></span></p>
+    </div>
+</div>  
+  <!--day 3-->
+  <div class="column is-half has-background-white"  style="max-width: 10rem;">
+    <div class="card-content">
+        
+        <img class="image is-rounded is-96x96" id="icon3"/>
+    <br>
+    <p class="card-title" id="day-3"></h4>
+    <p class="card-text">Temp: <span id="temp-3"></span></p>
+    <p>Humidity: <span id="humidity-3"></span></p>
+    </div>
+</div>  
+  <!--day 4-->
+  <div class="column is-half has-background-white"  style="max-width: 10rem;">
+    <div class="card-content">
+        
+        <img class="image is-rounded is-96x96" id="icon4"/>
+    <br>
+    <p class="card-title" id="day-4"></h4>
+    <p class="card-text">Temp: <span id="temp-4"></span></p>
+    <p>Humidity: <span id="humidity-4"></span></p>
+    </div>
+</div>  
+      </section> 
+
     
-    <section id='covidData' class="box modal-card-body covid-rates">
-      <p>CURRENT COVID DATA: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    </section>
+  
   </div>
 </div>
 
