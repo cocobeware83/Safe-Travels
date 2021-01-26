@@ -46,7 +46,17 @@ $(document).ready(function() {
       } 
     }) 
 
-   
+// translates lon + lat from weather API into county name for COVID API
+let findCounty = function(lat, lon){
+  fetch('https://geo.fcc.gov/api/census/area?lat=' + lat + '&lon=' + lon + '&format=json').then(function(response){
+    if(response.ok){
+      response.json().then(function(data){
+        let countyName = data.results[0].county_name;
+        return countyName;
+      });
+    }
+  })  
+}
 
 // stores searched city in local storage and displays below search bar
 let storeCity = function(city){
