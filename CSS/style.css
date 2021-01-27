@@ -1,5 +1,5 @@
 body {
-    background-image: url('../images/map4.jpg');
+    background-image: url('../images/map2.jpg');
 }
 /*navbar styling*/
 .image {
@@ -38,33 +38,22 @@ input{
     font-weight:bolder
 } 
 
-/*modal styling*/
-.box {
-    width:90%;
-}
+/*forecast modal styling*/
 
-.card {
-    width: 20%;
+.forecastbox {
+    text-align: center;
+    max-height: calc(80% - 10px);
+    overflow-y: auto;
+    width:30%;
 }
-.card {
-    color: white;
-    width: calc(20% - 20px);
-    border-radius: 2px;
-    margin: 1px;
-    
- }
- .card p {
-    font-size: 15px;
- }
- @media screen and (max-width: 1050px) {
-    .card {
+@media screen and (max-width: 1050px) {
+    .forecastbox {
        width: 45%;
     }
-    .card p {
-        font-size: 10px;
+    .forecastbox p {
+        font-size: 15px;
     }
-    .box {
-        width:65%
-    }
+  
  }
+
 
