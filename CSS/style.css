@@ -1,5 +1,5 @@
 body {
-    background-image: url('../images/map2.jpg');
+    background-image: url('../images/map4.jpg');
 }
 /*navbar styling*/
 .image {
@@ -37,3 +37,34 @@ input{
     color: red;
     font-weight:bolder
 } 
+
+/*modal styling*/
+.box {
+    width:90%;
+}
+
+.card {
+    width: 20%;
+}
+.card {
+    color: white;
+    width: calc(20% - 20px);
+    border-radius: 2px;
+    margin: 1px;
+    
+ }
+ .card p {
+    font-size: 15px;
+ }
+ @media screen and (max-width: 1050px) {
+    .card {
+       width: 45%;
+    }
+    .card p {
+        font-size: 10px;
+    }
+    .box {
+        width:65%
+    }
+ }
+

@@ -1,5 +1,4 @@
 let searchHistory = [];
-let coordinates = [];
 let savedSearchesDiv = document.getElementById("saved-searches");
 let searchBtn = document.getElementById("btn");
 let fiveDayBtn = document.getElementById("five-day-btn")
@@ -27,6 +26,7 @@ $(document).ready(function() {
         // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
         $(".navbar-burger").toggleClass("is-active");
         $(".navbar-menu").toggleClass("is-active");
+        $(".modal").removeClass("is-active");
   
     });
   });
@@ -57,57 +57,29 @@ $(document).ready(function() {
 
     // 5 day forecast second modal
     fiveDayBtn.addEventListener('click', function() {
-      let extended5 = document.getElementById("extended5");
-      extended5.style.display = 'block'
+      $(".extended").addClass("is-active");
     })
 
     fiveDayClose.addEventListener('click', function(){
-      let extended5 = document.getElementById("extended5");
-      extended5.style.display = 'none'
+     //let extended5 = document.getElementById("extended5");
+     // extended5.style.display = 'none'
+     $(".extended").removeClass("is-active");
     })
 
-// API call that translates lon + lat from weather API into county name for COVID API
+// translates lon + lat from weather API into county name for COVID API
 let findCounty = function(lat, lon){
-
   fetch('https://geo.fcc.gov/api/census/area?lat=' + lat + '&lon=' + lon + '&format=json').then(function(response){
     if(response.ok){
       response.json().then(function(data){
-        let stateName = data.results[0].state_name;
         let countyName = data.results[0].county_name;
-        displayCovidData(countyName, stateName);
-
-
-        
+        return countyName;
       });
     }
   })  
 }
 
-// Covid Api fetch
-
-function displayCovidData(countyName, stateName){
-  console.log(countyName);
-  const url ='https://disease.sh/v3/covid-19/jhucsse/counties/';
-  console.log(url);
-  fetch(url + countyName)
-.then((resp) => resp.json())
-.then(function(data) {
-    for( var i = 0; i < data.length; i++) {
-        if(data[i].province === stateName) {
-            console.log(data[i].stats.confirmed);
-            console.log(data[i].stats.deaths);
-        }
-    }
-}
-//.catch(function(error) {
-//console.log(error);
-//})
-)}
-
-
-
 // stores searched city in local storage and displays below search bar
-let storeRecentSearch = function(){
+let displayRecentSearches = function(){
 
 
     // limits display to last 8 searches
@@ -140,7 +112,7 @@ let displayRecentSearch = function(event){
 
   if(targetEl.matches(".searched-city")){
       let city = targetEl.textContent;
-      storeRecentSearch(city);
+      displayRecentSearches(city);
       displayCityForecast(city);
       modal.style.display = "block";
 
@@ -157,7 +129,7 @@ let citySearch = function(){
   if(city){  
       // stores city into local storage
       localStorage.setItem("city", JSON.stringify(searchHistory));
-      storeRecentSearch(city);
+      displayRecentSearches(city);
       displayCityForecast(city);
       searchBar.value = "";
     }else{
@@ -179,7 +151,7 @@ function displayCityForecast(city){
       method: "GET"
   }).then(function(response){
       var weatherIcon = response.weather[0].icon;
-      var date = $("<h2>").text(moment().format('l'));
+      var date = $("<p>").text(moment().format('l'));
       var icon = $("<img>").attr("src", "https://openweathermap.org/img/wn/" + weatherIcon + ".png");
       var tempFarenheit = (response.main.temp - 273.15) * 1.80 + 32;
       var feelLike = (response.main.feels_like - 273.15) * 1.80 + 32;
@@ -192,14 +164,9 @@ function displayCityForecast(city){
       $("#city-humidity").text(response.main.humidity + "%");
       $("#city-feelslike").text(feelLike.toFixed(2) + " \u00B0F");
 
-      
+
       var lat = response.coord.lat
       var lon = response.coord.lon
-      
-      // send coordinate data to findCounty function
-      findCounty(lat, lon)
-
-
       queryURL = "https://api.openweathermap.org/data/2.5/uvi?appid=" + apiKey + "&lat=" + lat + "&lon=" + lon; 
       $.ajax({
           url: queryURL,
@@ -240,3 +207,31 @@ function displayCityForecast(city){
                 weather(cities[cities.length -1]);
             };};
         init();
+
+// begin api call for 5 day forecast
+function fiveDayForecast(city){
+  var apiKey = "d6563c1f7289474849eef3ceaf635e1d"
+  var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + apiKey;
+
+  $.ajax({
+      url: queryURL,
+      method: "GET"
+  }).then(function(response){
+      var counter = 1
+      for(var i=0; i < response.list.length; i += 8){
+          var date = moment(response.list[i].dt_txt).format("l");
+          var weatherIcon = response.list[i].weather[0].icon;
+          var temperatureF = (response.list[i].main.temp - 273.15) * 1.80 + 32;
+              
+        
+          $("#day-" + counter).text(date);
+          $("#icon" + counter).attr("src", "https://openweathermap.org/img/wn/" + weatherIcon + ".png");
+          $("#temp-" + counter).text(temperatureF.toFixed(2) + " \u00B0F");
+          $("#humidity-" + counter).text(response.list[i].main.humidity + "%"); counter++;};
+          $("#extended5").show();   
+          });
+          };
+          function searchedCities(city){
+            var citiesListed = $("<li>").text(city)
+            citiesListed.addClass("searchedCity");
+            $("#searchedCity").append(citiesListed);};
