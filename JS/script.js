@@ -81,6 +81,10 @@ let findCounty = function(lat, lon){
   })  
 }
 
+function displayCovidData(countyName, stateName){
+  console.log(countyName);
+}
+
 
 // stores searched city in local storage and displays below search bar
 let storeRecentSearch = function(){
