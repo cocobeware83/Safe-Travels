@@ -2,6 +2,7 @@ let searchHistory = [];
 let savedSearchesDiv = document.getElementById("saved-searches");
 let searchButton = document.getElementById("btn");
 let searchBar = document.getElementById("searchbar");
+let savedCityEl = document.getElementById("saved-searches")
 
 // check for local storage
 if(localStorage.getItem('city')===null){
@@ -59,9 +60,8 @@ let findCounty = function(lat, lon){
 }
 
 // stores searched city in local storage and displays below search bar
-let storeCity = function(city){
-    // pushes new city into array
-    searchHistory.push(city);
+let displayRecentSearches = function(){
+
 
     // limits display to last 8 searches
     searchHistory = searchHistory.slice(Math.max(searchHistory.length - 8,0))
@@ -84,16 +84,33 @@ let storeCity = function(city){
 
       };
 
-        // stores city into local storage
-        localStorage.setItem("city", JSON.stringify(searchHistory));
+
+}
+
+// When user clicks on searched city link, modal will pop up with that cities information
+let displayPreviousSearch = function(event){
+  let targetEl = event.target;
+
+  if(targetEl.matches(".searched-city")){
+      let city = targetEl.textContent;
+      displayRecentSearches(city);
+      displayCityForecast(city);
+      modal.style.display = "block";
+
+  }
 }
 
 // Pulls value from search bar
 let citySearch = function(){
-    let city = searchBar.value.trim().toLowerCase();
-    console.log(city);
-    if(city){
-      storeCity(city);
+  let city = searchBar.value.trim().toLowerCase();
+      
+  // pushes new city into array
+  searchHistory.push(city);
+  
+  if(city){  
+      // stores city into local storage
+      localStorage.setItem("city", JSON.stringify(searchHistory));
+      displayRecentSearches(city);
       displayCityForecast(city);
       searchBar.value = "";
     }else{
@@ -103,6 +120,7 @@ let citySearch = function(){
 }
 
 searchButton.addEventListener("click", citySearch);
+savedCityEl.addEventListener("click", displayPreviousSearch);
 
 //api call for currently searched city
 function displayCityForecast(city){
@@ -193,4 +211,5 @@ function displayCityForecast(city){
                 weather(cities[cities.length -1]);
             };};
         init();
+          
         
