@@ -54,13 +54,13 @@
         <button class="button has-text-centered" id="btn" type="submit">Search</button>
         <!-- saved searches -->
         <div class="content">
-          <ul id="saved-searches">
+          <ul id="saved-searches" class="ml-0">
 
           </ul>
         </div>
     </section>
 <!--insert MODAL here-->
-<div class="modal is-full-width">
+<div id="main-modal" class="modal is-full-width">
   <div class="modal-background"></div>
   <div class="modal-card">
     <header class="box modal-card-head has-background-grey-lighter">
@@ -69,12 +69,13 @@
       <button class="delete is-pulled-right" aria-label="close"></button>
     </header>
     <!--COVID DATA-->
-    <section id='covidData' class="box modal-card-body covid-rates">
+    <section id='covid-data' class="box modal-card-body covid-rates has-text-centered">
+      <h3 class="modal-card-title has-text-centered has-text-grey-darker mb-3">Covid Data for <span id="county-name"></span> County</h3>
       <p><strong>Confirmed Cases (by county): </strong><span id='county-cases'></span></p>    
       <p><strong>Confirmed Deaths (by county): </strong><span id='county-deaths'></span></p>    
     </section>
     <!--CITY WEATHER CONDITIONS FOR THE DAY-->
-    <section id='displayCity' class="box modal-card-body weather-forecast has-text-centered">
+    <section id='display-city' class="box modal-card-body weather-forecast has-text-centered">
       <p><strong>Current Temperature: </strong><span id='city-temp'></span></p>
       <p><strong>Feels Like: </strong><span id='city-feelslike'></span></p>
       <p><strong>Current Humidity: </strong><span id='city-humidity'></span></p>
@@ -85,58 +86,58 @@
   </div>
 </div>
 <!--5 day Forecast Modal-->
-<div id="extended5"  class="modal">
+<div id="forecast-modal"  class="modal forecastbox mt-5 ml-5">
   <div class="modal-background">
-    <section class="row">
+    <section class="row"></section>
       <button id = "five-day-close"class="delete is-pulled-right" aria-label="close"></button>
 
       <!--day 1-->
-              <div class="has-text-white has-background-primary">
+              <div class="has-text-white has-background-info">
                   <div class="card-body">
                       <h4 class="card-title" id="day-1"></h4>
                       <img id="icon1"/>
                   <br>
-                  <p class="card-text">Temperature: <span id="temp-1"></span></p>
+                  <p class="card-text">Temp: <span id="temp-1"></span></p>
                   <p>Humidity: <span id="humidity-1"></span></p>
                   </div>
               </div>  
       <!--day 2-->
-      <div class="has-text-white has-background-primary">               
+      <div class="has-text-white has-background-link">               
          <div class="card-body">
                       <h4 class="card-title" id="day-2"></h4>
                       <img id="icon2"/>
                   <br>
-                  <p class="card-text">Temperature: <span id="temp-2"></span></p>
+                  <p class="card-text">Temp: <span id="temp-2"></span></p>
                   <p>Humidity: <span id="humidity-2"></span></p>
                   </div>
               </div>
       <!--day 3-->
-      <div class="has-text-white has-background-primary">
+      <div class="has-text-white has-background-info">
                         <div class="card-body">
                       <h4 class="card-title" id="day-3"></h4>
                       <img id="icon3"/>
                   <br>
-                  <p class="card-text">Temperature: <span id="temp-3"></span</p>
+                  <p class="card-text">Temp: <span id="temp-3"></span</p>
                   <p>Humidity: <span id="humidity-3"></span</p>
                   </div>
               </div>
       <!--day 4-->
-      <div class="has-text-white has-background-primary">
+      <div class="has-text-white has-background-link">
                         <div class="card-body">
                       <h4 class="card-title" id="day-4"></h4>
                       <img id="icon4"/>
                   <br>
-                  <p class="card-text">Temperature: <span id="temp-4"></span</p>
+                  <p class="card-text">Temp: <span id="temp-4"></span</p>
                   <p>Humidity: <span id="humidity-4"></span</p>
                   </div>
               </div>
       <!--day 5-->
-      <div class="has-text-white has-background-primary">
+      <div class="has-text-white has-background-info">
                         <div class="card-body">
                       <h4 class="card-title" id="day-5"></h4>
                       <img id="icon5"/>
                   <br>
-                  <p class="card-text">Temperature: <span id="temp-5"></span</p>
+                  <p class="card-text">Temp: <span id="temp-5"></span</p>
                   <p>Humidity: <span id="humidity-5"></span</p>
                   </div>
               </div> 
@@ -174,7 +175,7 @@
               <a class="navbar-item" href="https://cocobeware83.github.io/coryneel/"target="_blank">
                 Cory Neel
               </a>
-              <a class="navbar-item">
+              <a class="navbar-item" href="https://https://daylan-lewandowski.github.io/" target="_blank">
                 Daylan Lewandowski
               </a>
               <a class="navbar-item" href="https://emarbloe.github.io/personal_portfolio/"target="_blank">
