@@ -44,6 +44,6 @@ Have a quality README (with unique name, description, technologies used, screens
 
 ## Creators
 * [Cory Neel](https://cocobeware83.github.io/coryneel/)
-* [Daylan Lewandowski]()
+* [Daylan Lewandowski](https://daylan-lewandowski.github.io/)
 * [Ephraim Marbloe](https://emarbloe.github.io/personal_portfolio/)
 * [Juan Nunez](https://jnunez1229.github.io/juan-nunez/)
