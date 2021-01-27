@@ -1,8 +1,11 @@
 let searchHistory = [];
 let savedSearchesDiv = document.getElementById("saved-searches");
-let searchButton = document.getElementById("btn");
+let searchBtn = document.getElementById("btn");
+let fiveDayBtn = document.getElementById("five-day-btn")
+let fiveDayClose = document.getElementById("five-day-close")
 let searchBar = document.getElementById("searchbar");
 let savedCityEl = document.getElementById("saved-searches")
+
 
 
 // check for local storage
@@ -30,23 +33,37 @@ $(document).ready(function() {
   //modal JS
   const modal =  
           document.querySelector('.modal'); 
-    const btn =  
-          document.querySelector('#btn') 
     const close =  
-          document.querySelector('.delete') 
+          document.querySelector('.delete');
+    
   
-    btn.addEventListener('click', function () { 
+    searchBtn.addEventListener('click', function () { 
       modal.style.display = 'block' 
     }) 
-  
+
     close.addEventListener('click', function () { 
       modal.style.display = 'none' 
+      let extended5 = document.getElementById("extended5");
+      extended5.style.display = 'none'
     }) 
+
     window.addEventListener('click', function (event) { 
       if (event.target.className ===  'delete') { 
         modal.style.display = 'none' 
+
       } 
     }) 
+
+    // 5 day forecast second modal
+    fiveDayBtn.addEventListener('click', function() {
+      let extended5 = document.getElementById("extended5");
+      extended5.style.display = 'block'
+    })
+
+    fiveDayClose.addEventListener('click', function(){
+      let extended5 = document.getElementById("extended5");
+      extended5.style.display = 'none'
+    })
 
 // translates lon + lat from weather API into county name for COVID API
 let findCounty = function(lat, lon){
@@ -120,7 +137,7 @@ let citySearch = function(){
 
 }
 
-searchButton.addEventListener("click", citySearch);
+searchBtn.addEventListener("click", citySearch);
 savedCityEl.addEventListener("click", displayRecentSearch);
 
 //api call for currently searched city
