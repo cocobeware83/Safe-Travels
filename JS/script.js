@@ -17,7 +17,6 @@ if(localStorage.getItem('city')===null){
     searchHistory = JSON.parse(localStorage.getItem('city'));
 }
 
-//weatherbit.io API key a6f0dd8794a44655b5fe26a993709bf4
 
 // Animates navbar burger
 $(document).ready(function() {
@@ -279,3 +278,11 @@ function displayCityForecast(city){
                   $("#extended5").show();   	
                   });	
                   };	
+<<<<<<< HEAD
+=======
+
+
+
+
+      
+>>>>>>> 0126dd62cf7fe0d234559f7ef6e228aad6d62062
