@@ -1,6 +1,6 @@
 <h1 align="center">Safe Travels!</h1>
 
-Insert GIF of Deployed Application Here
+![Safe Travels](https://user-images.githubusercontent.com/72768374/106069578-60482a80-60c8-11eb-8123-4ffed6c957b1.gif)
 
 ## Purpose
 
