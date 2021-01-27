@@ -54,13 +54,13 @@
         <button class="button has-text-centered" id="btn" type="submit">Search</button>
         <!-- saved searches -->
         <div class="content">
-          <ul id="saved-searches">
+          <ul id="saved-searches" class="ml-0">
 
           </ul>
         </div>
     </section>
 <!--insert MODAL here-->
-<div class="modal is-full-width">
+<div id="main-modal" class="modal is-full-width">
   <div class="modal-background"></div>
   <div class="modal-card">
     <header class="box modal-card-head has-background-grey-lighter">
@@ -69,12 +69,13 @@
       <button class="delete is-pulled-right" aria-label="close"></button>
     </header>
     <!--COVID DATA-->
-    <section id='covidData' class="box modal-card-body covid-rates">
+    <section id='covid-data' class="box modal-card-body covid-rates has-text-centered">
+      <h3 class="modal-card-title has-text-centered has-text-grey-darker mb-3">Covid Data for <span id="county-name"></span> County</h3>
       <p><strong>Confirmed Cases (by county): </strong><span id='county-cases'></span></p>    
       <p><strong>Confirmed Deaths (by county): </strong><span id='county-deaths'></span></p>    
     </section>
     <!--CITY WEATHER CONDITIONS FOR THE DAY-->
-    <section id='displayCity' class="box modal-card-body weather-forecast has-text-centered">
+    <section id='display-city' class="box modal-card-body weather-forecast has-text-centered">
       <p><strong>Current Temperature: </strong><span id='city-temp'></span></p>
       <p><strong>Feels Like: </strong><span id='city-feelslike'></span></p>
       <p><strong>Current Humidity: </strong><span id='city-humidity'></span></p>
@@ -85,7 +86,7 @@
   </div>
 </div>
 <!--5 day Forecast Modal-->
-<div id="extended5"  class="modal">
+<div id="forecast-modal"  class="modal">
   <div class="modal-background">
     <section class="row">
       <button id = "five-day-close"class="delete is-pulled-right" aria-label="close"></button>

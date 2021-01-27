@@ -5,7 +5,8 @@ let searchBtn = document.getElementById("btn");
 let fiveDayBtn = document.getElementById("five-day-btn")
 let fiveDayClose = document.getElementById("five-day-close")
 let searchBar = document.getElementById("searchbar");
-let savedCityEl = document.getElementById("saved-searches")
+let savedCityEl = document.getElementById("saved-searches");
+
 
 
 
@@ -33,7 +34,7 @@ $(document).ready(function() {
   
   //modal JS
   const modal =  
-          document.querySelector('.modal'); 
+          document.querySelector('#main-modal'); 
     const close =  
           document.querySelector('.delete');
     
@@ -57,12 +58,12 @@ $(document).ready(function() {
 
     // 5 day forecast second modal
     fiveDayBtn.addEventListener('click', function() {
-      let extended5 = document.getElementById("extended5");
+      let extended5 = document.getElementById("forecast-modal");
       extended5.style.display = 'block'
     })
 
     fiveDayClose.addEventListener('click', function(){
-      let extended5 = document.getElementById("extended5");
+      let extended5 = document.getElementById("forecast-modal");
       extended5.style.display = 'none'
     })
 
@@ -86,16 +87,33 @@ let findCounty = function(lat, lon){
 // Covid Api fetch
 
 function displayCovidData(countyName, stateName){
-  console.log(countyName);
+
   const url ='https://disease.sh/v3/covid-19/jhucsse/counties/';
-  console.log(url);
+  
   fetch(url + countyName)
-.then((resp) => resp.json())
-.then(function(data) {
-    for( var i = 0; i < data.length; i++) {
+    .then((resp) => resp.json())
+    .then(function(data) {
+      // for multiple counties with the same name, match stateName with covid province to pull correct info
+      for( var i = 0; i < data.length; i++) {
+
+        // once correct info is found, display on modal
         if(data[i].province === stateName) {
-            console.log(data[i].stats.confirmed);
-            console.log(data[i].stats.deaths);
+            let confirmedCases = document.getElementById('county-cases')
+            let confirmedDeaths = document.getElementById('county-deaths')
+            let countySpan = document.getElementById('county-name')
+            let casesData = data[i].stats.confirmed;
+            let deathData = data[i].stats.deaths;
+            
+            // clear previous information
+            countySpan.innerHTML = "";
+            confirmedCases.innerHTML = "";
+            confirmedDeaths.innerHTML = "";
+            
+            // add current cities info
+            countySpan.innerHTML = '<strong>' + countyName +  '</strong>';
+            confirmedCases.innerHTML = casesData;
+            confirmedDeaths.innerHTML = deathData;
+
         }
     }
 }
@@ -151,19 +169,20 @@ let displayRecentSearch = function(event){
 let citySearch = function(){
   let city = searchBar.value.trim().toLowerCase();
       
-  // pushes new city into array
-  searchHistory.push(city);
-  
   if(city){  
+      // pushes new city into array
+      searchHistory.push(city);
       // stores city into local storage
       localStorage.setItem("city", JSON.stringify(searchHistory));
       storeRecentSearch(city);
       displayCityForecast(city);
+      fiveDayForecast(city);
+      // clears searchbar
       searchBar.value = "";
     }else{
-      return
+      modal.style.display = "none";
+      
     }
-
 }
 
 searchBtn.addEventListener("click", citySearch);
@@ -217,29 +236,51 @@ function displayCityForecast(city){
           } else {
               $("#city-uvindex").addClass("severe");};
               $("#city-uvindex").text(response.value);});   
-              $("#displayCity").show();}); 
-          };
-          
-        
+              $("#display-city").show();}); 
+};
+                  
         //Clear input for new search
-        function getCities(){
-            $("#searchedCity").empty();
-            for (var i = 0; i < cities.length; i++) { 
-                searchedCities(cities[i]);
-            };};
+        // function getCities(){
+        //     $("#searchedCity").empty();
+        //     for (var i = 0; i < cities.length; i++) { 
+        //         searchedCities(cities[i]);
+        //     };};
         
-        function weather(city){
-            displayCityForecast(city);
-            fiveDayForecast(city);};
-        function init() {
-        // retrieve city list from local storage
-            var storedCities = JSON.parse(localStorage.getItem("searches"));
-            if (storedCities) {
-                cities = storedCities;
-                getCities();
-                weather(cities[cities.length -1]);
-            };};
-        init();
+        // function init() {
+        // // retrieve city list from local storage
+        //     var storedCities = JSON.parse(localStorage.getItem("searches"));
+        //     console.log(storedCities)
+        //     if (storedCities) {
+        //         cities = storedCities;
+        //         getCities();
+        //         weather(cities[cities.length -1]);
+        //     };};
+        // init();
+
+         // begin api call for 5 day forecast	
+         function fiveDayForecast(city){	
+          var apiKey = "d6563c1f7289474849eef3ceaf635e1d"	
+          var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + apiKey;	
+
+          $.ajax({	
+              url: queryURL,	
+              method: "GET"	
+          }).then(function(response){	
+              var counter = 1	
+              for(var i=0; i < response.list.length; i += 8){	
+                  var date = moment(response.list[i].dt_txt).format("l");	
+                  var weatherIcon = response.list[i].weather[0].icon;	
+                  var temperatureF = (response.list[i].main.temp - 273.15) * 1.80 + 32;	
+
+                  $("#day-" + counter).text(date);	
+                  $("#icon" + counter).attr("src", "https://openweathermap.org/img/wn/" + weatherIcon + ".png");	
+                  $("#temp-" + counter).text(temperatureF.toFixed(2) + " \u00B0F");	
+                  $("#humidity-" + counter).text(response.list[i].main.humidity + "%"); counter++;};	
+                  $("#extended5").show();   	
+                  });	
+                  };	
+
+
 
 
       
