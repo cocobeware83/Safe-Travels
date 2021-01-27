@@ -1,4 +1,5 @@
 let searchHistory = [];
+let coordinates = [];
 let savedSearchesDiv = document.getElementById("saved-searches");
 let searchBtn = document.getElementById("btn");
 let fiveDayBtn = document.getElementById("five-day-btn")
@@ -65,20 +66,24 @@ $(document).ready(function() {
       extended5.style.display = 'none'
     })
 
-// translates lon + lat from weather API into county name for COVID API
+// API call that translates lon + lat from weather API into county name for COVID API
 let findCounty = function(lat, lon){
+
   fetch('https://geo.fcc.gov/api/census/area?lat=' + lat + '&lon=' + lon + '&format=json').then(function(response){
     if(response.ok){
       response.json().then(function(data){
+        let stateName = data.results[0].state_name;
         let countyName = data.results[0].county_name;
-        return countyName;
+        displayCovidData(countyName, stateName);
+        
       });
     }
   })  
 }
 
+
 // stores searched city in local storage and displays below search bar
-let displayRecentSearches = function(){
+let storeRecentSearch = function(){
 
 
     // limits display to last 8 searches
@@ -111,7 +116,7 @@ let displayRecentSearch = function(event){
 
   if(targetEl.matches(".searched-city")){
       let city = targetEl.textContent;
-      displayRecentSearches(city);
+      storeRecentSearch(city);
       displayCityForecast(city);
       modal.style.display = "block";
 
@@ -128,7 +133,7 @@ let citySearch = function(){
   if(city){  
       // stores city into local storage
       localStorage.setItem("city", JSON.stringify(searchHistory));
-      displayRecentSearches(city);
+      storeRecentSearch(city);
       displayCityForecast(city);
       searchBar.value = "";
     }else{
@@ -163,9 +168,14 @@ function displayCityForecast(city){
       $("#city-humidity").text(response.main.humidity + "%");
       $("#city-feelslike").text(feelLike.toFixed(2) + " \u00B0F");
 
-
+      
       var lat = response.coord.lat
       var lon = response.coord.lon
+      
+      // send coordinate data to findCounty function
+      findCounty(lat, lon)
+
+
       queryURL = "https://api.openweathermap.org/data/2.5/uvi?appid=" + apiKey + "&lat=" + lat + "&lon=" + lon; 
       $.ajax({
           url: queryURL,
