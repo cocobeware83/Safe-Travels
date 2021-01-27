@@ -34,6 +34,6 @@ input{
 }
   
 .severe {
-    background-color: red;
+    color: red;
     font-weight:bolder
 } 
