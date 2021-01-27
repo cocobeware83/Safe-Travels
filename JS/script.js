@@ -75,15 +75,35 @@ let findCounty = function(lat, lon){
         let stateName = data.results[0].state_name;
         let countyName = data.results[0].county_name;
         displayCovidData(countyName, stateName);
+
+
         
       });
     }
   })  
 }
 
+// Covid Api fetch
+
 function displayCovidData(countyName, stateName){
   console.log(countyName);
+  const url ='https://disease.sh/v3/covid-19/jhucsse/counties/';
+  console.log(url);
+  fetch(url + countyName)
+.then((resp) => resp.json())
+.then(function(data) {
+    for( var i = 0; i < data.length; i++) {
+        if(data[i].province === stateName) {
+            console.log(data[i].stats.confirmed);
+            console.log(data[i].stats.deaths);
+        }
+    }
 }
+//.catch(function(error) {
+//console.log(error);
+//})
+)}
+
 
 
 // stores searched city in local storage and displays below search bar
@@ -222,4 +242,4 @@ function displayCityForecast(city){
         init();
 
 
-        
+      
