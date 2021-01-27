@@ -279,6 +279,7 @@ function displayCityForecast(city){
                   });	
                   };	
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 
@@ -286,3 +287,5 @@ function displayCityForecast(city){
 
       
 >>>>>>> 0126dd62cf7fe0d234559f7ef6e228aad6d62062
+=======
+>>>>>>> feature/5dayforecast
