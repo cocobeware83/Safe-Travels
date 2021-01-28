@@ -7,6 +7,18 @@ let fiveDayClose = document.getElementById("five-day-close")
 let searchBar = document.getElementById("searchbar");
 let savedCityEl = document.getElementById("saved-searches");
 
+var request = new XMLHttpRequest();
+
+// Pull current location
+request.open('GET', 'https://api.ipdata.co/?api-key=test');
+request.setRequestHeader('Accept', 'application/json');
+request.onreadystatechange = function () {
+  if (this.readyState === 4) {
+    console.log(this.responseText);
+  }
+};
+
+request.send();
 
 
 
@@ -45,7 +57,7 @@ $(document).ready(function() {
 
     close.addEventListener('click', function () { 
       modal.style.display = 'none' 
-      let extended5 = document.getElementById("extended5");
+      let extended5 = document.getElementById("forecast-modal");
       extended5.style.display = 'none'
     }) 
 
@@ -122,9 +134,7 @@ function displayCovidData(countyName, stateName){
         }
     }
 }
-//.catch(function(error) {
-//console.log(error);
-//})
+
 )}
 
 
@@ -174,14 +184,16 @@ let displayRecentSearch = function(event){
 let citySearch = function(){
   let city = searchBar.value.trim().toLowerCase();
       
-  if(city){  
-      // pushes new city into array
-      searchHistory.push(city);
+  if(city){
+  
       // stores city into local storage
       localStorage.setItem("city", JSON.stringify(searchHistory));
       storeRecentSearch(city);
       displayCityForecast(city);
       fiveDayForecast(city);
+
+      // pushes new city into array. prevents duplicates from displaying
+      if (searchHistory.indexOf(city) === -1) searchHistory.push(city); 
       // clears searchbar
       searchBar.value = "";
     }else{
@@ -243,24 +255,6 @@ function displayCityForecast(city){
               $("#city-uvindex").text(response.value);});   
               $("#display-city").show();}); 
 };
-                  
-        //Clear input for new search
-        // function getCities(){
-        //     $("#searchedCity").empty();
-        //     for (var i = 0; i < cities.length; i++) { 
-        //         searchedCities(cities[i]);
-        //     };};
-        
-        // function init() {
-        // // retrieve city list from local storage
-        //     var storedCities = JSON.parse(localStorage.getItem("searches"));
-        //     console.log(storedCities)
-        //     if (storedCities) {
-        //         cities = storedCities;
-        //         getCities();
-        //         weather(cities[cities.length -1]);
-        //     };};
-        // init();
 
          // begin api call for 5 day forecast	
          function fiveDayForecast(city){	
