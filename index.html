@@ -10,7 +10,7 @@
 </head>
 </head>
 <body>
-<!--begin navbar-->
+<!--Navbar-->
     <navbar>
         <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
@@ -42,12 +42,12 @@
             </div>
           </nav>
     </navbar>
-<!--begin about us section-->
+<!--About US-->
     <section id="what-we-offer" class="about-us container p-2">
         <h2 class="title has-text-centered mt-5">What We Offer</h2>
         <p>Welcome to <strong>Safe Travels!</strong> We are dedicated to providing a growing database of information to help you travel with confidence within the continental U.S. Whether travelling alone or with others, it is important to be informed. Our application will arm you with knowledge of local COVID-19 infection rates, as well as a current weather forecast to help you determine if travel is advisable. We hope to be able to expand the information we provide as we grow, so keep checking back to see how else <strong>Safe Travels!</strong> can help you travel with confidence.</p>
     </section>
-<!--begin search section-->
+<!--Search Section-->
     <section id="search-city" class="search container has-text-centered mb-5">
         <h2 class="title">Search</h2>
         <input class="input is-rounded" placeholder="Search By City" type="text" name="city-search" id="searchbar">
@@ -59,7 +59,7 @@
           </ul>
         </div>
     </section>
-<!--insert MODAL here-->
+<!--FIRST MODAL-->
 <div id="main-modal" class="modal is-full-width">
   <div class="modal-background"></div>
   <div class="modal-card">
@@ -86,69 +86,67 @@
   </div>
 </div>
 <!--5 day Forecast Modal-->
-<div id="forecast-modal"  class="modal">
+<div id="forecast-modal"  class="modal forecastbox mt-5 ml-5">
   <div class="modal-background">
-    <section class="row">
+    <section class="row"></section>
       <button id = "five-day-close"class="delete is-pulled-right" aria-label="close"></button>
 
       <!--day 1-->
-              <div class="has-text-white has-background-primary">
+              <div class="has-text-white has-background-info">
                   <div class="card-body">
                       <h4 class="card-title" id="day-1"></h4>
                       <img id="icon1"/>
                   <br>
-                  <p class="card-text">Temperature: <span id="temp-1"></span></p>
+                  <p class="card-text">Temp: <span id="temp-1"></span></p>
                   <p>Humidity: <span id="humidity-1"></span></p>
                   </div>
               </div>  
       <!--day 2-->
-      <div class="has-text-white has-background-primary">               
+      <div class="has-text-white has-background-link">               
          <div class="card-body">
                       <h4 class="card-title" id="day-2"></h4>
                       <img id="icon2"/>
                   <br>
-                  <p class="card-text">Temperature: <span id="temp-2"></span></p>
+                  <p class="card-text">Temp: <span id="temp-2"></span></p>
                   <p>Humidity: <span id="humidity-2"></span></p>
                   </div>
               </div>
       <!--day 3-->
-      <div class="has-text-white has-background-primary">
+      <div class="has-text-white has-background-info">
                         <div class="card-body">
                       <h4 class="card-title" id="day-3"></h4>
                       <img id="icon3"/>
                   <br>
-                  <p class="card-text">Temperature: <span id="temp-3"></span</p>
+                  <p class="card-text">Temp: <span id="temp-3"></span</p>
                   <p>Humidity: <span id="humidity-3"></span</p>
                   </div>
               </div>
       <!--day 4-->
-      <div class="has-text-white has-background-primary">
+      <div class="has-text-white has-background-link">
                         <div class="card-body">
                       <h4 class="card-title" id="day-4"></h4>
                       <img id="icon4"/>
                   <br>
-                  <p class="card-text">Temperature: <span id="temp-4"></span</p>
+                  <p class="card-text">Temp: <span id="temp-4"></span</p>
                   <p>Humidity: <span id="humidity-4"></span</p>
                   </div>
               </div>
       <!--day 5-->
-      <div class="has-text-white has-background-primary">
+      <div class="has-text-white has-background-info">
                         <div class="card-body">
                       <h4 class="card-title" id="day-5"></h4>
                       <img id="icon5"/>
                   <br>
-                  <p class="card-text">Temperature: <span id="temp-5"></span</p>
+                  <p class="card-text">Temp: <span id="temp-5"></span</p>
                   <p>Humidity: <span id="humidity-5"></span</p>
                   </div>
               </div> 
           </section> 
       </div>
-  </div>
-  
-    <!--end 5 day forecast-->
+</div>
   <button class="modal-close is-large" aria-label="close"></button>
 </div>
-<!--begin bottom navbar-->
+<!--FOOTER-->
     <section class="hero is-dark">
       <div class="hero-body">
         <p style= 'color:#a3b5b2' class="title has-text-centered foot">

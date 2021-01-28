@@ -37,3 +37,23 @@ input{
     color: red;
     font-weight:bolder
 } 
+
+/*5 day forecast modal styling*/
+
+.forecastbox {
+    text-align: center;
+    max-height: calc(80% - 10px);
+    overflow-y: auto;
+    width:30%;
+}
+@media screen and (max-width: 1050px) {
+    .forecastbox {
+       width: 45%;
+    }
+    .forecastbox p {
+        font-size: 15px;
+    }
+  
+ }
+
+

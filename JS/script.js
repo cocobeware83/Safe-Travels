@@ -215,7 +215,7 @@ function displayCityForecast(city){
       method: "GET"
   }).then(function(response){
       var weatherIcon = response.weather[0].icon;
-      var date = $("<h2>").text(moment().format('l'));
+      var date = $("<h4>").text(moment().format('l'));
       var icon = $("<img>").attr("src", "https://openweathermap.org/img/wn/" + weatherIcon + ".png");
       var tempFarenheit = (response.main.temp - 273.15) * 1.80 + 32;
       var feelLike = (response.main.feels_like - 273.15) * 1.80 + 32;
@@ -278,8 +278,3 @@ function displayCityForecast(city){
                   $("#extended5").show();   	
                   });	
                   };	
-
-
-
-
-      

@@ -1,6 +1,6 @@
 <h1 align="center">Safe Travels!</h1>
 
-Insert GIF of Deployed Application Here
+![Safe Travels](https://user-images.githubusercontent.com/72768374/106069578-60482a80-60c8-11eb-8123-4ffed6c957b1.gif)
 
 ## Purpose
 
@@ -44,6 +44,6 @@ Have a quality README (with unique name, description, technologies used, screens
 
 ## Creators
 * [Cory Neel](https://cocobeware83.github.io/coryneel/)
-* [Daylan Lewandowski]()
+* [Daylan Lewandowski](https://daylan-lewandowski.github.io/)
 * [Ephraim Marbloe](https://emarbloe.github.io/personal_portfolio/)
 * [Juan Nunez](https://jnunez1229.github.io/juan-nunez/)
