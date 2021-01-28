@@ -103,6 +103,11 @@ function displayCovidData(countyName, stateName){
             let countySpan = document.getElementById('county-name')
             let casesData = data[i].stats.confirmed;
             let deathData = data[i].stats.deaths;
+
+            // format numbers with commas
+            nfObject = new Intl.NumberFormat('en-US')
+            casesData = nfObject.format(casesData);
+            deathData = nfObject.format(deathData)
             
             // clear previous information
             countySpan.innerHTML = "";
