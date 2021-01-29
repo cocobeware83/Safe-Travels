@@ -1,6 +1,7 @@
 <h1 align="center">Safe Travels!</h1>
 
-![Safe Travels](https://user-images.githubusercontent.com/72768374/106069578-60482a80-60c8-11eb-8123-4ffed6c957b1.gif)
+![safetravels](https://user-images.githubusercontent.com/72768374/106315636-29d9ef00-6231-11eb-855c-5c7b09a39f3e.gif)
+
 
 ## Purpose
 
