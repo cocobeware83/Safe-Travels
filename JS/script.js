@@ -123,7 +123,7 @@ let storeRecentSearch = function(){
      for(let i = 0; i < searchHistory.length; i++){
              
         let listedCity = document.createElement("li");
-        listedCity.setAttribute("class", "button is-small mt-0 mx-1");
+        listedCity.setAttribute("class", "button is-small mt-0 mx-1 mt-2");
         savedSearchesDiv.appendChild(listedCity);
         let cityLink = document.createElement("a");
         cityLink.setAttribute("href","#");
