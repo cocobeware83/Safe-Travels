@@ -34,7 +34,7 @@ Have a quality README (with unique name, description, technologies used, screens
 * The user can search any US city, and obtain current COVID infection rates, as well as current weather forecast for that city.  The application is intended to assist with travel planning.
 
 ## Links
-* [Deployed Application](https://cocobeware83.github.io/group-project1/)
+* [Deployed Application](https://cocobeware83.github.io/Safe-Travels/)
 * [GitHub Repository](https://github.com/cocobeware83/group-project1) 
 
 ## Built With
