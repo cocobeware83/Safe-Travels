@@ -12,10 +12,10 @@
 <body>
 <!--Navbar-->
     <navbar>
-        <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+        <nav class="navbar" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
               <figure class="image is-128x128">
-              <img src="./images/SAFE-TRAVELS.png">
+              <img src="./images/SAFE-TRAVELS2.png">
               </figure>
           
               <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
@@ -27,11 +27,11 @@
           
             <div id="navbarBasicExample" class="navbar-menu">
               <div class="navbar-end mr-6">
-                <a href="#what-we-offer" style="color:#a3b5b2" id= "nav-about" class="navbar-item mr-6 is-size-5">
+                <a href="#what-we-offer" style="color:#ffc13b" id= "nav-about" class="navbar-item mr-6 is-size-5">
                   What We Offer
                 </a>
                
-                <a href="#search-city" style="color:#a3b5b2" id= "nav-search" class="navbar-item is-size-5">
+                <a href="#search-city" style="color:#ffc13b" id= "nav-search" class="navbar-item is-size-5">
                   Search
                 </a>
               </div>             
@@ -62,7 +62,7 @@
 <div id="main-modal" class="modal is-full-width">
   <div class="modal-background"></div>
   <div class="modal-card">
-    <header class="box modal-card-head has-background-grey-lighter">
+    <header class="box modal-card-head has-background-grey">
       <span class="modal-card-title has-text-centered has-text-grey-darker">
         <span id='city-name'></span>
       <button class="delete is-pulled-right" aria-label="close"></button>
@@ -146,31 +146,34 @@
   <button class="modal-close is-large" aria-label="close"></button>
 </div>
 <!--FOOTER-->
-    <section class="hero is-dark">
+    <section class="hero">
+      <nav id="menu">
+        <label for="tm" id="toggle-menu">Creator Profiles <span class="drop-icon">▾</span></label>
+
+<!--personal links-->
+        <input type="checkbox" id="tm">
+        <ul class="main-menu clearfix">
+          <a class="navbar-item" href="https://cocobeware83.github.io/coryneel/"target="_blank">
+            Cory Neel
+          </a>
+          <a class="navbar-item" href="https://https://daylan-lewandowski.github.io/" target="_blank">
+            Daylan Lewandowski
+          </a>
+          <a class="navbar-item" href="https://emarbloe.github.io/personal_portfolio/"target="_blank">
+            Ephraim Marbloe
+          </a>
+          <a class="navbar-item" href="https://jnunez1229.github.io/juan-nunez/"target="_blank">
+            Juan Nunez
+          </a>
+        </ul>
+      </nav>
+      
       <div class="hero-body">
-        <p style= 'color:#a3b5b2' class="title has-text-centered foot">
+        <p style= 'color:#ffc13b' class="title has-text-centered foot">
           Thanks for visiting Safe Travels!
         </p>
       </div>
-      <div class="dropup">
-        <button class="dropbtn">Creator Profiles</button>
-        <div class="dropup-content">
-              <a class="navbar-item" href="https://cocobeware83.github.io/coryneel/"target="_blank">
-                Cory Neel
-              </a>
-              <a class="navbar-item" href="https://https://daylan-lewandowski.github.io/" target="_blank">
-                Daylan Lewandowski
-              </a>
-              <a class="navbar-item" href="https://emarbloe.github.io/personal_portfolio/"target="_blank">
-                Ephraim Marbloe
-              </a>
-              <a class="navbar-item" href="https://jnunez1229.github.io/juan-nunez/"target="_blank">
-                Juan Nunez
-              </a> 
-            
-                    
-            </div>
-          </div>
+      
       
     </section>
             
