@@ -63,6 +63,7 @@ input{
     max-height: calc(80% - 10px);
     overflow-y: auto;
     width:25%;
+    flex-direction: column;
 }
 
 
