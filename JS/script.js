@@ -7,7 +7,8 @@ let localBtn = document.getElementById("local-btn");
 let fiveDayClose = document.getElementById("five-day-close")
 let searchBar = document.getElementById("searchbar");
 let savedCityEl = document.getElementById("saved-searches");
-const modal = document.querySelector('#main-modal'); 
+const modal = document.querySelector('#main-modal');
+const forecastModal = document.getElementById('forecast-modal')
 const close = document.querySelector('.delete');
 
 const request = new XMLHttpRequest();
@@ -293,6 +294,13 @@ window.addEventListener('click', function (event) {
   } 
 }) 
 
+// Make 5 Day forecast Draggable
+$( function() {
+  $( "#forecast-modal" ).draggable();
+} );
+
+
+
 // recent searches event
 savedCityEl.addEventListener("click", displayRecentSearch);
 
@@ -300,4 +308,6 @@ savedCityEl.addEventListener("click", displayRecentSearch);
 localBtn.addEventListener('click', currentLocation);
 
 // user input event 
-searchBtn.addEventListener("click", citySearch);              
+searchBtn.addEventListener("click", citySearch);   
+
+
