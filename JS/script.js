@@ -254,14 +254,15 @@ function fiveDayForecast(city){
         var weatherIcon = response.list[i].weather[0].icon;	
         var temperatureF = (response.list[i].main.temp - 273.15) * 1.80 + 32;	
 
+        
         $("#day-" + counter).text(date);	
         $("#icon" + counter).attr("src", "https://openweathermap.org/img/wn/" + weatherIcon + ".png");	
         $("#temp-" + counter).text(temperatureF.toFixed(2) + " \u00B0F");	
         $("#humidity-" + counter).text(response.list[i].main.humidity + "%"); counter++;};
-
       $("#extended5").show();   	
     });	
 };
+
 
 // main modal event
 searchBtn.addEventListener('click', function () { 

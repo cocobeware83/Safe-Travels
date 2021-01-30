@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./CSS/style.css">
 </head>
 </head>
-<body >
+<body class= 'wrapper' >
 
 <!--Navbar-->
     <navbar>
@@ -63,19 +63,19 @@
 <div id="main-modal" class="modal is-full-width">
   <div class="modal-background"></div>
   <div class="modal-card">
-    <header class="box modal-card-head has-background-grey">
-      <span class="modal-card-title has-text-centered has-text-grey-darker">
+    <header class="box modal-card-head mt-5 mr-6 is pulled-right">
+      <span class="modal-card-title has-text-centered">
         <span id='city-name'></span>
       <button class="delete is-pulled-right" aria-label="close"></button>
     </header>
     <!--COVID DATA-->
-    <section id='covid-data' class="box modal-card-body covid-rates has-text-centered">
-      <h3 class="modal-card-title has-text-centered has-text-grey-darker mb-3">Covid Data for <span id="county-name"></span> County</h3>
+    <section id='covid-data' class="box modal-card-body covid-rates has-text-centered mr-6">
+      <h3 class="modal-card-title has-text-centered has-text-grey-darker  mb-3">Covid Data for <span id="county-name"></span> County</h3>
       <p><strong>Confirmed Cases (by county): </strong><span id='county-cases'></span></p>    
       <p><strong>Confirmed Deaths (by county): </strong><span id='county-deaths'></span></p>    
     </section>
     <!--CITY WEATHER CONDITIONS FOR THE DAY-->
-    <section id='display-city' class="box modal-card-body weather-forecast has-text-centered">
+    <section id='display-city' class="box modal-card-body weather-forecast has-text-centered mr-6">
       <p><strong>Current Temperature: </strong><span id='city-temp'></span></p>
       <p><strong>Feels Like: </strong><span id='city-feelslike'></span></p>
       <p><strong>Current Humidity: </strong><span id='city-humidity'></span></p>
@@ -147,7 +147,7 @@
   <button class="modal-close is-large" aria-label="close"></button>
 </div>
 <!--FOOTER-->
-    <footer class="hero">
+    <footer class="page-footer">
       <nav id="menu">
         <label for="tm" id="toggle-menu">Creator Profiles <span class="drop-icon">▾</span></label>
 

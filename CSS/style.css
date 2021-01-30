@@ -2,6 +2,9 @@ body {
     background-image: url('../images/map4.jpg');
     background-size: cover;
     background-position: center;
+    display: flex;
+        min-height: 100vh;
+        flex-direction: column;
 }
 /*navbar styling*/
 .image {
@@ -31,6 +34,12 @@ input{
   background-color: #706f6c;   
  }
  
+ .modal-card-head {
+   background-color: #1e3d59;
+ }
+   .modal-card-title {
+     color: #ffc13b;
+ }
 /*styling for UV index conditions */
 .favorable {
     color: green; 
@@ -53,7 +62,7 @@ input{
     text-align: center;
     max-height: calc(80% - 10px);
     overflow-y: auto;
-    width:30%;
+    width:25%;
 }
 
 
@@ -114,9 +123,10 @@ input{
 
 
 
+
 @media screen and (max-width: 1050px) {
     .forecastbox {
-       width: 45%;
+       width: 50%;
     }
     .forecastbox p {
         font-size: 15px;
